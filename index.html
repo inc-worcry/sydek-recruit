@@ -13,19 +13,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Old+Mincho:wght@600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#152844;
-  --navy-deep:#0e1c30;
-  --ink:#1c2738;
-  --coral:#e07a5f;
-  --coral-soft:#ec9a82;
-  --gold:#c9a24b;
-  --sky:#7fa8c9;
+  --navy:#003377;
+  --navy-deep:#012356;
+  --ink:#1b2740;
+  --coral:#ff6633;
+  --coral-soft:#ff8a5f;
+  --gold:#ffa766;
+  --sky:#005da8;
   --sky-soft:#cfe0ec;
-  --cream:#f7f1e9;
-  --cream-2:#fbf7f1;
-  --paper:#fffdfa;
-  --line:rgba(21,40,68,.12);
-  --shadow:0 24px 60px -28px rgba(21,40,68,.45);
+  --cream:#eef3f9;
+  --cream-2:#f4f7fb;
+  --paper:#ffffff;
+  --line:rgba(0,51,119,.13);
+  --shadow:0 24px 60px -28px rgba(0,51,119,.4);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -189,7 +189,7 @@ section{position:relative}
 .str-card:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
 .str-card .ic{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;margin-bottom:24px;background:linear-gradient(135deg,var(--coral),var(--gold))}
 .str-card .ic.b2{background:linear-gradient(135deg,var(--sky),var(--navy))}
-.str-card .ic.b3{background:linear-gradient(135deg,var(--gold),#e6c878)}
+.str-card .ic.b3{background:linear-gradient(135deg,var(--gold),#ffc299)}
 .str-card .no{position:absolute;top:22px;right:26px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:2.6rem;color:var(--line);font-weight:600}
 .str-card h3{font-family:"Zen Old Mincho",serif;font-size:1.32rem;font-weight:700;color:var(--navy);margin-bottom:14px;letter-spacing:.04em;line-height:1.6}
 .str-card p{font-size:.92rem;color:#5a6880;font-weight:300;line-height:2}
@@ -277,6 +277,24 @@ section{position:relative}
 .base-overseas{margin-top:22px;text-align:center;font-size:.88rem;color:#5a6880;font-weight:300}
 .base-overseas b{color:var(--navy);font-weight:600}
 
+/* ===== gallery ===== */
+.gallery{background:linear-gradient(170deg,var(--cream-2),#fff)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:210px;gap:16px}
+.gal-grid figure{position:relative;margin:0;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,var(--sky-soft),#e7eef7);box-shadow:0 16px 40px -24px rgba(0,51,119,.5);border:1px solid var(--line)}
+.gal-grid figure.tall{grid-row:span 2}
+.gal-grid figure.wide{grid-column:span 2}
+.gal-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:.7s cubic-bezier(.2,.7,.2,1)}
+.gal-grid figure:hover img{transform:scale(1.07)}
+.gal-grid .ph-ic{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--navy);opacity:.5}
+.gal-grid .ph-ic small{font-size:.66rem;letter-spacing:.14em;opacity:.8}
+.gal-grid figure.noimg .ph-ic{display:flex}
+.gal-grid figure.noimg{background:linear-gradient(135deg,var(--sky-soft),#e7eef7),repeating-linear-gradient(45deg,rgba(255,255,255,.5) 0 10px,transparent 10px 20px)}
+.gal-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 20px 16px;color:#fff;font-family:"Zen Old Mincho",serif;font-weight:700;letter-spacing:.06em;font-size:1rem;background:linear-gradient(transparent,rgba(0,51,119,.86));z-index:2}
+.gal-grid figcaption span{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:.72rem;letter-spacing:.1em;color:var(--coral-soft);margin-bottom:2px}
+.gal-note{text-align:center;margin-top:30px;font-size:.82rem;color:#7a869c;font-weight:300}
+@media(max-width:880px){.gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}.gal-grid figure.wide{grid-column:span 2}}
+@media(max-width:520px){.gal-grid{grid-template-columns:1fr 1fr}.gal-grid figure.tall{grid-row:span 1}.gal-grid figure.wide{grid-column:span 2}}
+
 /* ===== CTA ===== */
 .cta{
   background:
@@ -344,6 +362,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
     <a href="#strength">強み</a>
     <a href="#position">立ち位置</a>
     <a href="#jobs">募集職種</a>
+    <a href="#gallery">現場</a>
     <a href="#message">メッセージ</a>
     <a href="#entry" class="nav-cta">ENTRY</a>
   </nav>
@@ -566,6 +585,49 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
       </div>
       <p style="text-align:center;margin-top:24px;font-size:.85rem;color:#7a869c;font-weight:300">※中途採用の募集職種・条件の詳細は、エントリー後に個別にご案内します。</p>
     </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="pad gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="en-label">Our Workplace</span>
+      <div class="ja">現場を、のぞいてみる。<small>設計・試験・製造、そして人。サイデックの日常。</small></div>
+    </div>
+    <div class="gal-grid">
+      <figure class="gal-ph tall rv">
+        <img src="img/genba-honsha.jpg" alt="仙台本社・ものづくりの中核拠点" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
+        <span class="ph-ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><small>PHOTO</small></span>
+        <figcaption><span>Headquarters</span>仙台本社</figcaption>
+      </figure>
+      <figure class="gal-ph rv">
+        <img src="img/genba-design.jpg" alt="CADによる包装設計の現場" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
+        <span class="ph-ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><small>PHOTO</small></span>
+        <figcaption><span>Design</span>設計（CAD）</figcaption>
+      </figure>
+      <figure class="gal-ph rv">
+        <img src="img/genba-test.jpg" alt="衝撃・振動・3D測定の試験設備" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
+        <span class="ph-ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><small>PHOTO</small></span>
+        <figcaption><span>Testing</span>試験設備（衝撃・振動）</figcaption>
+      </figure>
+      <figure class="gal-ph wide rv">
+        <img src="img/genba-line.jpg" alt="真空成形の製造ライン" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
+        <span class="ph-ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><small>PHOTO</small></span>
+        <figcaption><span>Manufacturing</span>製造ライン（真空成形）</figcaption>
+      </figure>
+      <figure class="gal-ph rv">
+        <img src="img/genba-tray.jpg" alt="精密部品用トレー製品" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
+        <span class="ph-ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><small>PHOTO</small></span>
+        <figcaption><span>Products</span>精密トレー</figcaption>
+      </figure>
+      <figure class="gal-ph rv">
+        <img src="img/genba-team.jpg" alt="チーム・面談の風景" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
+        <span class="ph-ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><small>PHOTO</small></span>
+        <figcaption><span>People</span>チーム・面談</figcaption>
+      </figure>
+    </div>
+    <p class="gal-note rv">※写真は素材をお預かりすれば差し替えます（各枠に <code>img/〜.jpg</code> を入れるだけで反映されます）。</p>
   </div>
 </section>
 

@@ -76,11 +76,7 @@ header.nav.scrolled{background:rgba(255,253,250,.92);backdrop-filter:blur(12px);
 .brand{display:flex;align-items:center;gap:12px;color:#fff;transition:.4s}
 header.nav.scrolled .brand{color:var(--navy)}
 .brand .logo-mark{
-  width:42px;height:42px;border-radius:12px;flex:none;
-  background:linear-gradient(135deg,var(--coral),var(--gold));
-  display:grid;place-items:center;
-  font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;
-  color:#fff;font-size:1.5rem;box-shadow:0 8px 20px -8px rgba(224,122,95,.7)
+  height:40px;width:auto;flex:none;display:block;object-fit:contain
 }
 .brand .bt{line-height:1.25}
 .brand .bt b{font-family:"Zen Old Mincho",serif;font-size:1.12rem;letter-spacing:.14em;font-weight:700;display:block}
@@ -398,7 +394,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
 <!-- ===== NAV ===== -->
 <header class="nav" id="nav">
   <a href="#top" class="brand">
-    <span class="logo-mark">S</span>
+    <img class="logo-mark" src="img/logo-s.png" alt="サイデック株式会社">
     <span class="bt"><b>SYDEK</b><span>SINCE 1935</span></span>
   </a>
   <nav class="nav-links" id="navLinks">
@@ -725,6 +721,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
+        <img src="img/logo-s.png" alt="サイデック株式会社" style="height:46px;width:auto;display:block;margin-bottom:16px">
         <span class="bt"><b>SYDEK</b><span>SINCE 1935</span></span>
         <p>サイデック株式会社<br>〒984-0015 宮城県仙台市若林区卸町5丁目6番2号<br>TEL 022-235-2222（代表）</p>
       </div>

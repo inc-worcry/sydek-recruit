@@ -274,24 +274,27 @@ section{position:relative}
 .base-overseas b{color:var(--navy);font-weight:600}
 
 /* ===== gallery / carousel ===== */
-.gallery{background:linear-gradient(170deg,var(--cream-2),#fff)}
-.car-wrap{position:relative;overflow:hidden;border-radius:24px;box-shadow:var(--shadow)}
-.car-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform}
-.car-track figure{flex:0 0 100%;margin:0;position:relative;height:520px}
+.gallery{background:#0a1828;padding-bottom:40px}
+.gallery .sec-head .ja{color:#fff}
+.gallery .sec-head .en-label{color:var(--coral-soft)}
+.gallery .sec-head .ja small{color:rgba(255,255,255,.55)}
+.car-wrap{position:relative;overflow:hidden;width:100%;margin:0}
+.car-track{display:flex;transition:transform .7s cubic-bezier(.4,0,.2,1);will-change:transform}
+.car-track figure{flex:0 0 100%;margin:0;position:relative;height:70vh;min-height:400px}
 .car-track img{width:100%;height:100%;object-fit:cover;display:block}
-.car-track figcaption{position:absolute;bottom:0;left:0;right:0;padding:22px 28px 20px;background:linear-gradient(transparent,rgba(0,51,119,.86));color:#fff;font-family:"Zen Old Mincho",serif;font-weight:700;letter-spacing:.06em;font-size:1.05rem}
-.car-track figcaption span{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.74rem;color:var(--coral-soft);margin-bottom:3px}
+.car-track figcaption{position:absolute;bottom:0;left:0;right:0;padding:28px 40px 26px;background:linear-gradient(transparent,rgba(0,20,60,.88));color:#fff;font-family:"Zen Old Mincho",serif;font-weight:700;letter-spacing:.06em;font-size:1.1rem}
+.car-track figcaption span{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.78rem;color:var(--coral-soft);margin-bottom:4px}
 .car-track figure.noimg{background:linear-gradient(135deg,var(--sky-soft),#e7eef7)}
 .car-track figure.noimg img{display:none}
-.car-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);color:#fff;width:52px;height:52px;border-radius:50%;font-size:1.6rem;cursor:pointer;transition:.3s;backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;line-height:1}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);color:#fff;width:56px;height:56px;border-radius:50%;font-size:1.8rem;cursor:pointer;transition:.3s;backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;line-height:1}
 .car-btn:hover{background:var(--coral);border-color:var(--coral)}
-.car-prev{left:20px}
-.car-next{right:20px}
-.car-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
-.car-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(0,51,119,.22);cursor:pointer;transition:.3s;padding:0}
-.car-dots button.active{background:var(--coral);width:26px;border-radius:4px}
-@media(max-width:880px){.car-track figure{height:340px}}
-@media(max-width:520px){.car-track figure{height:220px}.car-btn{width:38px;height:38px;font-size:1.1rem}.car-prev{left:10px}.car-next{right:10px}}
+.car-prev{left:28px}
+.car-next{right:28px}
+.car-dots{display:flex;justify-content:center;gap:8px;padding:20px 0 0}
+.car-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.3);cursor:pointer;transition:.3s;padding:0}
+.car-dots button.active{background:var(--coral);width:28px;border-radius:4px}
+@media(max-width:880px){.car-track figure{height:50vh;min-height:300px}}
+@media(max-width:520px){.car-track figure{height:56vw;min-height:220px}.car-btn{width:40px;height:40px;font-size:1.2rem}.car-prev{left:12px}.car-next{right:12px}}
 
 /* ===== CTA ===== */
 .cta{
@@ -565,7 +568,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
       </div>
 
       <div class="req-table rv">
-        <div class="req-row"><div class="k">募集職種</div><div class="v"><b>営業・企画営業（法人向け）</b><br>既存顧客メインの包装資材の提案営業。まずは既存営業として経験を積みます。</div></div>
+        <div class="req-row"><div class="k">募集職種</div><div class="v"><b>営業・企画営業（法人向け）</b></div></div>
         <div class="req-row"><div class="k">対象</div><div class="v">大学・大学院（修士・博士）卒　／　業界未経験歓迎<br><span class="badge">メーカーへの興味</span><span class="badge">営業職への関心</span><span class="badge">普通自動車免許（AT可）</span></div></div>
         <div class="req-row"><div class="k">求める人物像</div><div class="v">主体性を持って取り組める方／積極的にコミュニケーションを取れる方／お客様と良好な関係を築ける方／健康志向をお持ちの方</div></div>
         <div class="req-row"><div class="k">給与</div><div class="v"><b>月給240,001円〜</b>　基本給207,915円〜＋固定残業代32,086円〜<br>（20時間分・超過分は追加支給）／昇給年1回・賞与年2回（夏・冬）</div></div>
@@ -573,7 +576,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
         <div class="req-row"><div class="k">休日休暇</div><div class="v"><b>年間休日121日</b>　完全週休2日制（土日）／有給・GW・夏季・年末年始／産前産後・育児・介護休暇</div></div>
         <div class="req-row"><div class="k">福利厚生</div><div class="v">各種社会保険完備／交通費全額支給／財形貯蓄／退職金制度</div></div>
         <div class="req-row"><div class="k">教育制度</div><div class="v">入社後2週間は仙台本社で研修（製品知識・先輩同行）。配属後は約3ヶ月のOJT。<b>業界未経験でも安心</b>。</div></div>
-        <div class="req-row"><div class="k">勤務地</div><div class="v">本社（仙台）／東京・名古屋・大阪・福岡 各営業所　※顧客に最も近い拠点で働けます</div></div>
+        <div class="req-row"><div class="k">勤務地</div><div class="v">仙台・岩手・東京・大阪・名古屋・福岡 各営業所</div></div>
         <div class="req-row"><div class="k">選考</div><div class="v">カジュアル面接 → 一次選考 → 最終選考（間に適性検査SPI）</div></div>
       </div>
     </div>
@@ -586,13 +589,13 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
         <div class="work-card rv"><span class="step">03 / Making</span><h4>製造・開発技術</h4><p>真空成形の高い技術で、設計を製品へ。品質重視の製造で、世界基準の製品をスピーディーに供給します。</p></div>
       </div>
       <div class="req-table rv">
-        <div class="req-row"><div class="k">募集職種</div><div class="v"><b>設計職／営業職</b>　これまでの経験を活かし、精密包装の設計・提案営業へ。</div></div>
+        <div class="req-row"><div class="k">募集職種</div><div class="v"><b>設計職／営業職</b></div></div>
         <div class="req-row"><div class="k">雇用形態</div><div class="v"><b>正社員</b>（試用期間6ヶ月・条件変更なし／期間の定めなし）</div></div>
         <div class="req-row"><div class="k">こんな方へ</div><div class="v">「裁量は欲しい、でも厚い基盤の上で」——大手の安定とベンチャーの裁量、その両取りを求める20代後半〜30代の技術者・営業の方に。<br><span class="badge">上流から関わりたい</span><span class="badge">安定×実績で働きたい</span><span class="badge">地元・全国各拠点で</span></div></div>
         <div class="req-row"><div class="k">給与</div><div class="v"><b>想定年収400万円〜</b>　月給270,000円〜350,000円<br>基本給245,000円〜310,000円＋固定残業代25,000円〜40,000円／月　　昇給年1回・賞与年2回</div></div>
         <div class="req-row"><div class="k">勤務時間</div><div class="v">9:00〜18:00（実働8時間・休憩60分）　残業 月20時間程度</div></div>
         <div class="req-row"><div class="k">休日休暇</div><div class="v"><b>年間休日121日</b>　完全週休2日制＋夏期休暇6日・年末年始7日／有給休暇（入社半年後に10日付与）</div></div>
-        <div class="req-row"><div class="k">勤務地</div><div class="v"><b>設計職</b>＝仙台本社（基本的に転勤なし）／<b>営業職</b>＝岩手・仙台・東京・大阪・名古屋・福岡 各営業所（転勤の可能性ありだが頻度は高くありません）</div></div>
+        <div class="req-row"><div class="k">勤務地</div><div class="v">仙台・岩手・東京・大阪・名古屋・福岡 各営業所</div></div>
         <div class="req-row"><div class="k">福利厚生</div><div class="v">各種社会保険完備／退職金制度／社用車貸与（東京勤務以外・休日利用可／ガソリン代・維持費 会社負担）</div></div>
         <div class="req-row"><div class="k">入社条件</div><div class="v">非喫煙者、または入社時点で喫煙されていない・禁煙する意思がある方</div></div>
         <div class="req-row"><div class="k">選考</div><div class="v">カジュアル面接 → 一次選考（社長面接・WEB） → 最終選考（対面・本社） → 合否　※一次選考前に適性検査SPIの可能性あり</div></div>
@@ -603,13 +606,14 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
 </section>
 
 <!-- ===== GALLERY ===== -->
-<section class="pad gallery" id="gallery">
-  <div class="wrap">
-    <div class="sec-head rv">
+<section class="gallery" id="gallery">
+  <div class="wrap" style="padding:80px 28px 36px">
+    <div class="sec-head rv" style="margin-bottom:30px">
       <span class="en-label">Our Workplace</span>
       <div class="ja">現場を、のぞいてみる。<small>設計・品質・製造、そして人。サイデックの日常。</small></div>
     </div>
-    <div class="car-wrap rv">
+  </div>
+  <div class="car-wrap rv">
       <div class="car-track" id="carTrack">
         <figure>
           <img src="img/genba-honsha.jpg" alt="仙台本社" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
@@ -648,7 +652,6 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
       <button class="car-btn car-next" id="carNext" aria-label="次へ">&#8250;</button>
     </div>
     <div class="car-dots rv" id="carDots"></div>
-  </div>
 </section>
 
 <!-- ===== MESSAGE ===== -->
@@ -675,7 +678,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
         私たちの包装を選び続けています。<br>
         その静かな誇りを、次の90年へ。一緒に歩んでくれる仲間を待っています。
       </p>
-      <div class="msg-sign rv"><b>サイデック株式会社</b></div>
+      <div class="msg-sign rv"><img src="img/logo.jpg" alt="サイデック株式会社" style="height:44px;width:auto;display:inline-block;filter:brightness(0) invert(1);opacity:.9;margin-top:8px"></div>
     </div>
   </div>
 </section>
@@ -685,7 +688,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
   <div class="wrap">
     <div class="sec-head rv">
       <span class="en-label">Our Bases</span>
-      <div class="ja">全国6拠点＋海外へ<small>顧客に最も近い場所で、働ける。</small></div>
+      <div class="ja">全国6拠点<small>顧客に最も近い場所で、働ける。</small></div>
     </div>
     <div class="base-grid">
       <div class="base-card rv"><div class="area">Tohoku</div><h4>仙台本社</h4><p>宮城県仙台市若林区卸町／営業・設計・製造の中核拠点</p></div>
@@ -694,12 +697,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
       <div class="base-card rv"><div class="area">Kansai</div><h4>大阪営業所</h4><p>大阪府吹田市広芝町</p></div>
       <div class="base-card rv"><div class="area">Kyushu</div><h4>福岡営業所</h4><p>福岡市博多区博多駅東</p></div>
       <div class="base-card rv"><div class="area">Tohoku</div><h4>岩手営業所</h4><p>岩手県北上市</p></div>
-      <div class="base-card rv"><div class="area">Overseas</div><h4>中国（蘇州・東莞）</h4><p>海外シフトユーザーへ供給</p></div>
-      <div class="base-card rv"><div class="area">Overseas</div><h4>フィリピン</h4><p>グローバルに事業を展開</p></div>
-      <div class="base-card rv"><div class="area">Overseas</div><h4>台湾</h4><p>グローバルに事業を展開</p></div>
-      <div class="base-card rv"><div class="area">Overseas</div><h4>香港</h4><p>グローバルに事業を展開</p></div>
     </div>
-    <p class="base-overseas rv">国内と同様の<b>販売・設計・製造体制</b>をグローバルに展開。顧客のすぐそばでモノづくりを支えます。</p>
   </div>
 </section>
 
@@ -719,7 +717,6 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
     <div class="foot-top">
       <div class="foot-brand">
         <img src="img/logo.jpg" alt="サイデック株式会社" style="height:46px;width:auto;display:block;margin-bottom:16px">
-        <span class="bt"><b>SYDEK</b><span>SINCE 1935</span></span>
         <p>サイデック株式会社<br>〒984-0015 宮城県仙台市若林区卸町5丁目6番2号<br>TEL 022-235-2222（代表）</p>
       </div>
       <div class="foot-links">
@@ -798,7 +795,7 @@ document.querySelectorAll('.num-card').forEach(c=>cu.observe(c));
   }
   document.getElementById('carPrev').addEventListener('click',()=>go(cur-1));
   document.getElementById('carNext').addEventListener('click',()=>go(cur+1));
-  timer=setInterval(()=>go(cur+1),4500);
+  timer=setInterval(()=>go(cur-1),4500);
 })();
 </script>
 </body>

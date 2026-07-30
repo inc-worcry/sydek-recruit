@@ -273,28 +273,27 @@ section{position:relative}
 .base-overseas{margin-top:22px;text-align:center;font-size:.88rem;color:#5a6880;font-weight:300}
 .base-overseas b{color:var(--navy);font-weight:600}
 
-/* ===== gallery / carousel ===== */
-.gallery{background:#0a1828;padding-bottom:40px}
+/* ===== gallery / infinite scroll strip ===== */
+.gallery{background:#0a1828;padding:80px 0 60px}
+.gallery .sec-head{padding:0 28px}
 .gallery .sec-head .ja{color:#fff}
 .gallery .sec-head .en-label{color:var(--coral-soft)}
 .gallery .sec-head .ja small{color:rgba(255,255,255,.55)}
-.car-wrap{position:relative;overflow:hidden;width:100%;margin:0}
-.car-track{display:flex;transition:transform .7s cubic-bezier(.4,0,.2,1);will-change:transform}
-.car-track figure{flex:0 0 100%;margin:0;position:relative;height:70vh;min-height:400px}
-.car-track img{width:100%;height:100%;object-fit:cover;display:block}
-.car-track figcaption{position:absolute;bottom:0;left:0;right:0;padding:28px 40px 26px;background:linear-gradient(transparent,rgba(0,20,60,.88));color:#fff;font-family:"Zen Old Mincho",serif;font-weight:700;letter-spacing:.06em;font-size:1.1rem}
-.car-track figcaption span{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.78rem;color:var(--coral-soft);margin-bottom:4px}
-.car-track figure.noimg{background:linear-gradient(135deg,var(--sky-soft),#e7eef7)}
+.car-strip{overflow:hidden;width:100%;margin-top:44px;position:relative}
+.car-strip::before,.car-strip::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.car-strip::before{left:0;background:linear-gradient(to right,#0a1828,transparent)}
+.car-strip::after{right:0;background:linear-gradient(to left,#0a1828,transparent)}
+.car-track{display:flex;gap:18px;width:max-content;animation:car-scroll 38s linear infinite}
+.car-strip:hover .car-track{animation-play-state:paused}
+.car-track figure{flex:0 0 clamp(220px,25vw,360px);height:clamp(145px,17vw,240px);margin:0;position:relative;border-radius:14px;overflow:hidden;cursor:pointer}
+.car-track img{width:100%;height:100%;object-fit:cover;display:block;transition:.5s}
+.car-track figure:hover img{transform:scale(1.07)}
+.car-track figcaption{position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(transparent,rgba(0,20,60,.85));color:#fff;font-family:"Zen Old Mincho",serif;font-size:.88rem;font-weight:700;letter-spacing:.04em}
+.car-track figcaption span{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.66rem;color:var(--coral-soft);margin-bottom:2px}
+.car-track figure.noimg{background:linear-gradient(135deg,#1a3050,#0d2040)}
 .car-track figure.noimg img{display:none}
-.car-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);color:#fff;width:56px;height:56px;border-radius:50%;font-size:1.8rem;cursor:pointer;transition:.3s;backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;line-height:1}
-.car-btn:hover{background:var(--coral);border-color:var(--coral)}
-.car-prev{left:28px}
-.car-next{right:28px}
-.car-dots{display:flex;justify-content:center;gap:8px;padding:20px 0 0}
-.car-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.3);cursor:pointer;transition:.3s;padding:0}
-.car-dots button.active{background:var(--coral);width:28px;border-radius:4px}
-@media(max-width:880px){.car-track figure{height:50vh;min-height:300px}}
-@media(max-width:520px){.car-track figure{height:56vw;min-height:220px}.car-btn{width:40px;height:40px;font-size:1.2rem}.car-prev{left:12px}.car-next{right:12px}}
+@keyframes car-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:520px){.car-track figure{flex:0 0 220px;height:146px}.car-strip::before,.car-strip::after{width:60px}}
 
 /* ===== CTA ===== */
 .cta{
@@ -613,45 +612,27 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
       <div class="ja">現場を、のぞいてみる。<small>設計・品質・製造、そして人。サイデックの日常。</small></div>
     </div>
   </div>
-  <div class="car-wrap rv">
-      <div class="car-track" id="carTrack">
-        <figure>
-          <img src="img/genba-honsha.jpg" alt="仙台本社" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
-          <figcaption><span>Headquarters</span>仙台本社</figcaption>
-        </figure>
-        <figure>
-          <img src="img/genba-seikei.jpg" alt="成形工場" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
-          <figcaption><span>Manufacturing</span>成形工場</figcaption>
-        </figure>
-        <figure>
-          <img src="img/genba-shiken.jpg" alt="振動試験設備" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
-          <figcaption><span>Testing</span>振動試験設備</figcaption>
-        </figure>
-        <figure>
-          <img src="img/genba-tray.jpg" alt="精密トレー" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
-          <figcaption><span>Products</span>精密トレー</figcaption>
-        </figure>
-        <figure>
-          <img src="img/genba-cyber.jpg" alt="サイバーパッケージ" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
-          <figcaption><span>Products</span>サイバーパッケージ</figcaption>
-        </figure>
-        <figure>
-          <img src="img/genba-mesh.jpg" alt="メッシュパレット" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
-          <figcaption><span>Products</span>メッシュパレット</figcaption>
-        </figure>
-        <figure>
-          <img src="img/genba-tenkai.jpg" alt="展示会" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
-          <figcaption><span>Exhibition</span>展示会</figcaption>
-        </figure>
-        <figure>
-          <img src="img/genba-tray2.jpg" alt="特殊トレー" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
-          <figcaption><span>Products</span>特殊トレー</figcaption>
-        </figure>
-      </div>
-      <button class="car-btn car-prev" id="carPrev" aria-label="前へ">&#8249;</button>
-      <button class="car-btn car-next" id="carNext" aria-label="次へ">&#8250;</button>
+  <div class="car-strip rv">
+    <div class="car-track">
+      <figure><img src="img/genba-honsha.jpg" alt="仙台本社" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Headquarters</span>仙台本社</figcaption></figure>
+      <figure><img src="img/genba-seikei.jpg" alt="成形工場" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Manufacturing</span>成形工場</figcaption></figure>
+      <figure><img src="img/genba-shiken.jpg" alt="振動試験設備" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Testing</span>振動試験設備</figcaption></figure>
+      <figure><img src="img/genba-tray.jpg" alt="精密トレー" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Products</span>精密トレー</figcaption></figure>
+      <figure><img src="img/genba-cyber.jpg" alt="サイバーパッケージ" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Products</span>サイバーパッケージ</figcaption></figure>
+      <figure><img src="img/genba-mesh.jpg" alt="メッシュパレット" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Products</span>メッシュパレット</figcaption></figure>
+      <figure><img src="img/genba-tenkai.jpg" alt="展示会" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Exhibition</span>展示会</figcaption></figure>
+      <figure><img src="img/genba-tray2.jpg" alt="特殊トレー" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Products</span>特殊トレー</figcaption></figure>
+      <!-- duplicate for seamless loop -->
+      <figure><img src="img/genba-honsha.jpg" alt="仙台本社" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Headquarters</span>仙台本社</figcaption></figure>
+      <figure><img src="img/genba-seikei.jpg" alt="成形工場" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Manufacturing</span>成形工場</figcaption></figure>
+      <figure><img src="img/genba-shiken.jpg" alt="振動試験設備" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Testing</span>振動試験設備</figcaption></figure>
+      <figure><img src="img/genba-tray.jpg" alt="精密トレー" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Products</span>精密トレー</figcaption></figure>
+      <figure><img src="img/genba-cyber.jpg" alt="サイバーパッケージ" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Products</span>サイバーパッケージ</figcaption></figure>
+      <figure><img src="img/genba-mesh.jpg" alt="メッシュパレット" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Products</span>メッシュパレット</figcaption></figure>
+      <figure><img src="img/genba-tenkai.jpg" alt="展示会" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Exhibition</span>展示会</figcaption></figure>
+      <figure><img src="img/genba-tray2.jpg" alt="特殊トレー" onerror="this.style.display='none';this.parentElement.classList.add('noimg')"><figcaption><span>Products</span>特殊トレー</figcaption></figure>
     </div>
-    <div class="car-dots rv" id="carDots"></div>
+  </div>
 </section>
 
 <!-- ===== MESSAGE ===== -->
@@ -688,7 +669,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
   <div class="wrap">
     <div class="sec-head rv">
       <span class="en-label">Our Bases</span>
-      <div class="ja">全国6拠点<small>顧客に最も近い場所で、働ける。</small></div>
+      <div class="ja">全国6拠点＋海外へ<small>顧客に最も近い場所で、働ける。</small></div>
     </div>
     <div class="base-grid">
       <div class="base-card rv"><div class="area">Tohoku</div><h4>仙台本社</h4><p>宮城県仙台市若林区卸町／営業・設計・製造の中核拠点</p></div>
@@ -697,6 +678,10 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
       <div class="base-card rv"><div class="area">Kansai</div><h4>大阪営業所</h4><p>大阪府吹田市広芝町</p></div>
       <div class="base-card rv"><div class="area">Kyushu</div><h4>福岡営業所</h4><p>福岡市博多区博多駅東</p></div>
       <div class="base-card rv"><div class="area">Tohoku</div><h4>岩手営業所</h4><p>岩手県北上市</p></div>
+      <div class="base-card rv"><div class="area">Overseas</div><h4>中国（蘇州・東莞）</h4></div>
+      <div class="base-card rv"><div class="area">Overseas</div><h4>フィリピン</h4></div>
+      <div class="base-card rv"><div class="area">Overseas</div><h4>台湾</h4></div>
+      <div class="base-card rv"><div class="area">Overseas</div><h4>香港</h4></div>
     </div>
   </div>
 </section>
@@ -773,30 +758,6 @@ const cu=new IntersectionObserver((es)=>es.forEach(e=>{
   }
 }),{threshold:.5});
 document.querySelectorAll('.num-card').forEach(c=>cu.observe(c));
-// Carousel
-(function(){
-  const track=document.getElementById('carTrack');
-  if(!track)return;
-  const slides=Array.from(track.querySelectorAll('figure'));
-  const dotsEl=document.getElementById('carDots');
-  let cur=0,timer;
-  slides.forEach((_,i)=>{
-    const d=document.createElement('button');
-    if(i===0)d.classList.add('active');
-    d.addEventListener('click',()=>go(i));
-    dotsEl.appendChild(d);
-  });
-  function go(n){
-    cur=(n+slides.length)%slides.length;
-    track.style.transform=`translateX(-${cur*100}%)`;
-    dotsEl.querySelectorAll('button').forEach((d,i)=>d.classList.toggle('active',i===cur));
-    clearInterval(timer);
-    timer=setInterval(()=>go(cur+1),4500);
-  }
-  document.getElementById('carPrev').addEventListener('click',()=>go(cur-1));
-  document.getElementById('carNext').addEventListener('click',()=>go(cur+1));
-  timer=setInterval(()=>go(cur-1),4500);
-})();
 </script>
 </body>
 </html>

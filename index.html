@@ -385,6 +385,31 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
   .hero h1{font-size:1.8rem}
   .sec-head .ja{font-size:1.42rem}
 }
+
+/* Entry Modal */
+.entry-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,16,51,.72);z-index:9000;align-items:center;justify-content:center;padding:20px}
+.entry-modal-overlay.open{display:flex}
+.entry-modal{background:#fff;border-radius:16px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,.3)}
+.entry-modal-head{background:var(--navy);color:#fff;padding:28px 32px 20px;border-radius:16px 16px 0 0;position:relative}
+.entry-modal-head h3{font-family:'Zen Old Mincho',serif;font-size:1.25rem;margin:0}
+.entry-modal-head .close-btn{position:absolute;top:16px;right:20px;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer;line-height:1;opacity:.8}
+.entry-modal-head .close-btn:hover{opacity:1}
+.entry-modal-body{padding:28px 32px 32px}
+.entry-field{margin-bottom:18px}
+.entry-field label{display:block;font-size:.82rem;color:var(--navy);font-weight:700;margin-bottom:6px;letter-spacing:.05em}
+.entry-field label .req{color:var(--coral);margin-left:4px}
+.entry-field input,.entry-field select,.entry-field textarea{width:100%;padding:11px 14px;border:1.5px solid #d0d8e8;border-radius:8px;font-size:.95rem;font-family:'Noto Sans JP',sans-serif;transition:border-color .2s;box-sizing:border-box}
+.entry-field input:focus,.entry-field select:focus,.entry-field textarea:focus{outline:none;border-color:var(--sky)}
+.entry-field textarea{height:90px;resize:vertical}
+.entry-submit{width:100%;padding:15px;background:var(--coral);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;letter-spacing:.1em;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:background .2s;margin-top:6px}
+.entry-submit:hover{background:#e04f1a}
+.entry-submit:disabled{background:#aaa;cursor:not-allowed}
+.entry-success{text-align:center;padding:40px 20px;display:none}
+.entry-success .ok-icon{font-size:3rem;margin-bottom:12px}
+.entry-success h4{color:var(--navy);font-family:'Zen Old Mincho',serif;font-size:1.2rem;margin-bottom:8px}
+.entry-success p{color:#666;font-size:.9rem;line-height:1.8}
+@media(max-width:600px){.entry-modal-head,.entry-modal-body{padding-left:20px;padding-right:20px}.entry-modal{border-radius:12px}}
+
 </style>
 </head>
 <body>
@@ -693,7 +718,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30p
     <span class="en-label" style="color:#fff">Entry</span>
     <h2 class="rv">知る人ぞ知る、トップシェア。<br>あなたの手で、世界の精密を安全に守ろう。</h2>
     <p class="rv">まずはカジュアル面接から。「話を聞いてみたい」だけでも大歓迎です。</p>
-    <a href="http://www.sydek.co.jp/mail/" class="btn btn-white rv">エントリー・お問い合わせ →</a>
+    <a href="#" onclick="openEntryModal();return false;" class="btn btn-white rv">エントリー・お問い合わせ →</a>
   </div>
 </section>
 
@@ -760,5 +785,70 @@ const cu=new IntersectionObserver((es)=>es.forEach(e=>{
 }),{threshold:.5});
 document.querySelectorAll('.num-card').forEach(c=>cu.observe(c));
 </script>
+
+<!-- Entry Modal -->
+<div class="entry-modal-overlay" id="entryModal" onclick="if(event.target===this)closeEntryModal()">
+  <div class="entry-modal">
+    <div class="entry-modal-head">
+      <h3>エントリー・お問い合わせ</h3>
+      <button class="close-btn" onclick="closeEntryModal()">×</button>
+    </div>
+    <div class="entry-modal-body">
+      <div id="entryFormWrap">
+        <div class="entry-field">
+          <label>お名前<span class="req">*</span></label>
+          <input type="text" id="ef-name" placeholder="山田 太郎" required>
+        </div>
+        <div class="entry-field">
+          <label>メールアドレス<span class="req">*</span></label>
+          <input type="email" id="ef-email" placeholder="taro@example.com" required>
+        </div>
+        <div class="entry-field">
+          <label>電話番号</label>
+          <input type="tel" id="ef-phone" placeholder="090-0000-0000">
+        </div>
+        <div class="entry-field">
+          <label>応募区分<span class="req">*</span></label>
+          <select id="ef-type">
+            <option value="">選択してください</option>
+            <option value="新卒採用">新卒採用</option>
+            <option value="中途採用">中途採用</option>
+            <option value="その他・お問い合わせ">その他・お問い合わせ</option>
+          </select>
+        </div>
+        <div class="entry-field">
+          <label>メッセージ（任意）</label>
+          <textarea id="ef-message" placeholder="志望動機やご質問など、自由にご記入ください。"></textarea>
+        </div>
+        <button class="entry-submit" id="efSubmitBtn" onclick="submitEntry()">送信する</button>
+      </div>
+      <div class="entry-success" id="entrySuccess">
+        <div class="ok-icon">✅</div>
+        <h4>送信が完了しました</h4>
+        <p>お問い合わせいただきありがとうございます。<br>担当者より改めてご連絡いたします。</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function openEntryModal(){document.getElementById('entryModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeEntryModal(){document.getElementById('entryModal').classList.remove('open');document.body.style.overflow='';}
+async function submitEntry(){
+  var name=document.getElementById('ef-name').value.trim();
+  var email=document.getElementById('ef-email').value.trim();
+  var type=document.getElementById('ef-type').value;
+  if(!name||!email||!type){alert('必須項目（お名前・メールアドレス・応募区分）を入力してください。');return;}
+  var btn=document.getElementById('efSubmitBtn');
+  btn.disabled=true;btn.textContent='送信中...';
+  try{
+    await fetch('https://script.google.com/macros/s/AKfycbz8xppgv-J2X0JiJtKUizaHgTHkCCYq9TXaz6t67Qnv5b7tgIxta6mMeK0ijEnuATsPGQ/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:name,email:email,phone:document.getElementById('ef-phone').value,type:type,message:document.getElementById('ef-message').value})});
+  }catch(e){}
+  document.getElementById('entryFormWrap').style.display='none';
+  document.getElementById('entrySuccess').style.display='block';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeEntryModal();});
+</script>
+
 </body>
 </html>

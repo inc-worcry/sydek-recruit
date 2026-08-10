@@ -804,12 +804,16 @@ document.querySelectorAll('.num-card').forEach(c=>cu.observe(c));
           <input type="email" id="ef-email" placeholder="taro@example.com" required>
         </div>
         <div class="entry-field">
-          <label>電話番号</label>
-          <input type="tel" id="ef-phone" placeholder="090-0000-0000">
+          <label>電話番号<span class="req">*</span></label>
+          <input type="tel" id="ef-phone" placeholder="090-0000-0000" required>
+        </div>
+        <div class="entry-field">
+          <label>年齢<span class="req">*</span></label>
+          <input type="number" id="ef-age" placeholder="例：23" min="15" max="65" required>
         </div>
         <div class="entry-field">
           <label>応募区分<span class="req">*</span></label>
-          <select id="ef-type">
+          <select id="ef-type" required>
             <option value="">選択してください</option>
             <option value="新卒採用">新卒採用</option>
             <option value="中途採用">中途採用</option>
@@ -817,8 +821,8 @@ document.querySelectorAll('.num-card').forEach(c=>cu.observe(c));
           </select>
         </div>
         <div class="entry-field">
-          <label>メッセージ（任意）</label>
-          <textarea id="ef-message" placeholder="志望動機やご質問など、自由にご記入ください。"></textarea>
+          <label>応募理由<span class="req">*</span></label>
+          <textarea id="ef-message" placeholder="志望動機や弊社を知ったきっかけなどをご記入ください。" required></textarea>
         </div>
         <button class="entry-submit" id="efSubmitBtn" onclick="submitEntry()">送信する</button>
       </div>
@@ -836,13 +840,16 @@ function closeEntryModal(){document.getElementById('entryModal').classList.remov
 async function submitEntry(){
   var name=document.getElementById('ef-name').value.trim();
   var email=document.getElementById('ef-email').value.trim();
+  var phone=document.getElementById('ef-phone').value.trim();
+  var age=document.getElementById('ef-age').value.trim();
   var type=document.getElementById('ef-type').value;
-  if(!name||!email||!type){alert('必須項目（お名前・メールアドレス・応募区分）を入力してください。');return;}
+  var message=document.getElementById('ef-message').value.trim();
+  if(!name||!email||!phone||!age||!type||!message){alert('すべての項目は必須です。入力内容をご確認ください。');return;}
   var btn=document.getElementById('efSubmitBtn');
   btn.disabled=true;btn.textContent='送信中...';
   try{
     await fetch('https://script.google.com/macros/s/AKfycbz8xppgv-J2X0JiJtKUizaHgTHkCCYq9TXaz6t67Qnv5b7tgIxta6mMeK0ijEnuATsPGQ/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name:name,email:email,phone:document.getElementById('ef-phone').value,type:type,message:document.getElementById('ef-message').value})});
+      body:JSON.stringify({name:name,email:email,phone:phone,age:age,type:type,message:message})});
   }catch(e){}
   document.getElementById('entryFormWrap').style.display='none';
   document.getElementById('entrySuccess').style.display='block';
